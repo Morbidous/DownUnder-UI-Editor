@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <UserSecretsId>8f5a0ee0-8086-4157-ab9a-b997866d9303</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\DownUnder-UI\UI\Widgets\WidgetCoding\Test\CodeGen.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CodeGen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Test\MyWidgetCode.duwd" />
+  </ItemGroup>
+  <ItemGroup>
+    <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Extended" Version="3.8.0" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.0.1641" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <Import Project="..\..\DownUnder-UI\DownUnder.projitems" Label="Shared" />
+  <ItemGroup>
+    <Compile Remove="C:\Users\jamie\source\repos\DownUnder-UI\UI\Widgets\WidgetCoding\Test\CodeGen.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Test\MyWidgetCode.duwd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="C:\Users\jamie\source\repos\DownUnder-UI\UI\Widgets\WidgetCoding\Test\CodeGen.tt">
+      <LastGenOutput>CodeGen.cs</LastGenOutput>
+    </None>
+    <None Update="Test\MyWidgetCode.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="WidgetIndexer.duwdl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
