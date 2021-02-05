@@ -41,7 +41,7 @@ namespace DownUnder.UIEditor
 
             // TODO: use this.Content to load your game content here
             //dWindow = new DesktopWindow(_graphics, this, new OSInterface(), null, GroupBehaviorCollection.PlasmaDesktop);
-            
+
             dWindow = new DesktopWindow(_graphics, this, new OSInterface(), null, GroupBehaviorCollection.PlasmaDesktop);
             dWindow.DisplayWidget = Widgets.EditorWidgets.UIEditor(Args);
 

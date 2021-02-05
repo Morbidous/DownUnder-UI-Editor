@@ -72,7 +72,7 @@ namespace DownUnder.UIEditor.Widgets
 
             // Property grid
             Widget property_grid_container = side_grid[0, 2] = CommonWidgets.PropertyGrid(new Widget()).SendToContainer(false, true);
-            
+
             // Behaviors dock
             Widget behaviors_container = new Widget();
             side_grid[0, 0] = behaviors_container;
@@ -157,11 +157,11 @@ namespace DownUnder.UIEditor.Widgets
             widget.Behaviors.Add(new DragAndDropSource() { DragObject = represented_widget });
             widget.Behaviors.Add(new DragOffOutline());
 
-            widget.Behaviors.Add(new DrawText() 
-            { 
+            widget.Behaviors.Add(new DrawText()
+            {
                 Text = represented_widget.Name,
                 XTextPositioning = DrawText.XTextPositioningPolicy.center,
-                YTextPositioning = DrawText.YTextPositioningPolicy.center 
+                YTextPositioning = DrawText.YTextPositioningPolicy.center
             }, out var draw_text);
             represented_widget.OnRename += (sender, args) => { draw_text.Text = represented_widget.Name; };
 

@@ -1,11 +1,11 @@
-﻿using DownUnder.Content.Utilities.Serialization;
-using DownUnder.UI.Widgets;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using DownUnder.Content.Utilities.Serialization;
+using DownUnder.UI.Widgets;
 
-namespace DownUnder.UIEditor
+namespace DownUnder.UIEditor.CodeGeneration
 {
     public static class ProjectCodeInterface
     {
@@ -61,7 +61,7 @@ namespace DownUnder.UIEditor
         public static void AddEventVoid(StringBuilder cs, string widget_name, string event_name)
         {
             string args_type_name = typeof(Widget).GetEvent(event_name).EventHandlerType.Name;
-            
+
             // Look for the second last closing bracket
             int closing_bracket_index = -1;
             int closing_bracket_count = 0;
@@ -78,7 +78,7 @@ namespace DownUnder.UIEditor
             }
 
             cs.Insert(
-                closing_bracket_index, 
+                closing_bracket_index,
                 $"\n        void {widget_name}_{event_name}(object sender, {args_type_name} args)\n        {{\n            \n        }}\n");
         }
 
@@ -125,7 +125,7 @@ namespace DownUnder.UIEditor
         {
             string root = Path.GetPathRoot(file_path);
             string folder = Path.GetDirectoryName(file_path);
-            
+
             while (folder != root)
             {
                 string[] files = Directory.GetFiles(folder);

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DownUnder.UIEditor.CodeGeneration
+namespace DownUnder.UIEditor.Test
 {
     public partial class MyWidgetCode : WidgetCode
     {

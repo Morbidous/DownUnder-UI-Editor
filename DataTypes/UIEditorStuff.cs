@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using DownUnder.UIEditor.Test;
 
 namespace DownUnder.UIEditor.DataTypes
 {
@@ -33,7 +34,13 @@ namespace DownUnder.UIEditor.DataTypes
             }
         }
 
-        static string GetBasePath(string duwd_path) => Path.Combine(Path.GetDirectoryName(duwd_path), Path.GetFileNameWithoutExtension(duwd_path));
+        static string GetBasePath(string duwd_path) {
+            var maybe_dir_name = Path.GetDirectoryName(duwd_path);
+            if (!(maybe_dir_name is { } dir_name))
+                throw new InvalidOperationException($"Failed to find directory from path '{duwd_path}'.");
+
+            return Path.Combine(dir_name, Path.GetFileNameWithoutExtension(duwd_path));
+        }
 
         public void SaveTT()
         {
@@ -106,7 +113,7 @@ namespace DownUnder.UIEditor.DataTypes
             dialog.RestoreDirectory = true;
 
             if (dialog.ShowDialog() == DialogResult.OK) return Load(dialog.FileName);
-            
+
             return false;
         }
 

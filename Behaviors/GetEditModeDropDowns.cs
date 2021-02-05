@@ -14,7 +14,7 @@ namespace DownUnder.UIEditor.Behaviors
 
         DropDownEntryList entries = new DropDownEntryList();
 
-        protected override void Initialize() 
+        protected override void Initialize()
         {
             entries["Copy"].ClickAction = null;
             entries["Cut"].ClickAction = null;
