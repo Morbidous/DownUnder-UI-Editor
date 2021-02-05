@@ -12,7 +12,7 @@ namespace DownUnder.UIEditor.Behaviors
 
         protected override void Initialize()
         {
-            
+
         }
 
         protected override void ConnectEvents()
